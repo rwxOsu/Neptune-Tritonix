@@ -6,6 +6,7 @@
 	min-width: 800px !important;
 }
 
+
 #navigator-toolbox {
 	background-color: var(--neptune-toolbar-background) !important;
 	border: none !important;
@@ -42,7 +43,7 @@
 
 #TabsToolbar {
 	background: none !important;
-	padding: 0 116px 11px 0 !important;
+	padding: 0 44px 11px 0 !important;
 }
 
 #customization-container {
@@ -55,7 +56,7 @@ findbar {
 	contain: content;
 	top: 0;
 	right: 0;
-	background: var(--neptune-toolbar-background) !important;
+	background-color: var(--neptune-toolbar-background) !important;
 	border: none !important;
 	border-radius: 0 0 0 6px;
 	padding: 0 0 0 3px !important;
@@ -121,7 +122,7 @@ findbar {
 	--urlbar-min-height: max(30px, 1.4em) !important;
 	--tab-min-height: 30px !important;
 	--button-min-height: 22px !important;
-	--button-bgcolor: var(--neptune-item-background) !important;
+	--button-bgcolor: #FFFFFF !important;
 	--button-hover-bgcolor: var(--neptune-item-hover-background) !important;
 	--button-active-bgcolor: var(--neptune-item-active-background) !important;
 	--button-primary-bgcolor: var(--theme-primary-color) !important;
@@ -169,21 +170,21 @@ search-textbox {
 	background-color: var(--neptune-urlbar-background) !important;
 }
 
-#urlbar>.urlbar-input-container,
 #searchbar,
 #search-box,
 search-textbox,
 .findbar-textbox,
-[type="text"] {
+[type="text"],
+#urlbar>.urlbar-input-container {
 	outline: 18px solid transparent !important;
 }
 
-#urlbar[focused]>.urlbar-input-container,
 #searchbar:focus-within,
 #search-box[focused],
 search-textbox[focused],
 .findbar-textbox:focus,
-[type="text"]:focus-visible {
+[type="text"]:focus-visible,
+#urlbar[focused]>.urlbar-input-container {
 	outline: 4px solid var(--neptune-focused-urlbar-border-color) !important;
 	outline-offset: -2px !important;
 	transition: all .3s cubic-bezier(.6, 0, 0, 1);
@@ -290,7 +291,7 @@ textarea {
 			min-height: 22px !important;
 		}
 	}
-	
+
 	&[type=tip] {
 		padding: 0 !important;
 	
@@ -299,7 +300,7 @@ textarea {
 			margin: 0 !important;
 		}
 	}
-
+			  
 	&[rich-suggestion][type=search] {
 		:root:not([uidensity=compact]) & {
 			min-height: 32px !important;
@@ -381,18 +382,18 @@ textarea {
 	border-top: 1px solid var(--neptune-urlbar-border-color);
 }
 
-#urlbar .searchbar-engine-one-off-item {
+#urlbar .search-panel-header {
+	min-height: 22px !important;
+}
+
+.searchbar-engine-one-off-item {
 	height: 22px !important;
 	min-width: 22px !important;
 	margin-left: 4px !important;
-
+	
 	&:is(:not([selected]):hover,[selected]) {
 		color: var(--urlbarView-highlight-color) !important;
 	}
-}
-
-#urlbar .search-panel-header {
-	min-height: 22px !important;
 }
 
 #identity-popup,
@@ -408,8 +409,7 @@ textarea {
 	opacity: 0;
 	transition: .2s ease;
 	
-	#urlbar:hover &,
-	&[open] {
+	&:is(.urlbar-input-container:hover &, [open]) {
 		opacity: 1;
 		margin-inline-start: 0;
 	}
@@ -453,23 +453,21 @@ textarea {
 		color: color-mix(in srgb, currentColor 85%, transparent) !important;
 	}
 
-	&:not([disabled])[open],
-	&:not([disabled]):hover:active {
+	&:is(:not([disabled])[open],:not([disabled]):hover:active) {
 		background: none !important;
 		color: currentColor !important;
 	}
 }
 
 .urlbar-page-action {
-  margin-inline-end: calc(-16px - 2 * var(--urlbar-icon-padding));
-  opacity: 0;
-  transition: .2s ease;
+	margin-inline-end: calc(-16px - 2 * var(--urlbar-icon-padding));
+	opacity: 0;
+	transition: .2s ease;
 
-  #urlbar:hover &,
-  &[open] {
-    opacity: 1;
-    margin-inline-end: 0;
-  }
+	&:is(.urlbar-input-container:hover &, [open]) {
+		opacity: 1;
+		margin-inline-end: 0;
+	}
 }
 
 #urlbar-zoom-button {
@@ -708,15 +706,15 @@ screenshots-buttons {
 	border: none !important;
 }
 
-#PanelUI-button {
+/*#PanelUI-button {
 	position: fixed;
-	right: 12px;
+	right: 48px;
 }
 
 #unified-extensions-button {
 	position: fixed;
 	right: 84px;
-}
+}*/
 
 #library-button[animate]>.toolbarbutton-icon {
 	fill: transparent !important;
@@ -755,6 +753,7 @@ screenshots-buttons {
 #unified-extensions-panel #unified-extensions-view {
 	width: 100% !important;
 }
+
 
 input[type=checkbox],
 .checkbox-check:not([native]) {
@@ -897,10 +896,6 @@ menuitem[checked]>.menu-iconic-left {
 	margin-bottom: 4px !important;
 }
 
-#editBMPanel_folderMenuList {
-	padding-block: 0 !important;
-}
-
 .expander-up,
 .expander-down {
 	height: 22px !important;
@@ -908,10 +903,15 @@ menuitem[checked]>.menu-iconic-left {
 	border-radius: 6px !important;
 }
 
+#editBMPanel_folderMenuList {
+	padding-block: 0 !important;
+}
+
 #editBMPanel_folderTree {
 	background-color: var(--neptune-urlbar-background) !important;
 	border: none !important;
 }
+
 #editBMPanel_newFolderButton {
 	padding: 2px 8px !important;
 }
@@ -927,6 +927,7 @@ menuitem[checked]>.menu-iconic-left {
 .notificationbox-stack {
 	background: none !important;
 }
+
 .downloadMainArea {
 	padding-block: 0 !important;
 }
@@ -1135,7 +1136,7 @@ treechildren::-moz-tree-cell-text(selected) {
 	}
 }
 
-@media (-moz-platform: windows) {
+@media (-moz-platform: linux) or (-moz-platform: windows) {
 	:root[tabsintitlebar][inFullscreen] .titlebar-buttonbox-container {
 		display: none !important;
 	}
@@ -1265,7 +1266,7 @@ menugroup>#context-forward {
 #tabs-newtab-button,
 #TabsToolbar #new-tab-button {
 	position: fixed;
-	right: 48px;
+	right: 12px;
 	list-style-image: url("neptune/icons/newtab.svg") !important;
 }
 
@@ -1324,6 +1325,7 @@ tooltip,
 #scrollbutton-up,
 #scrollbutton-down,
 #fxa-toolbar-menu-button,
+#firefox-view-button,
 #save-to-pocket-button,
 #identity-icon-label,
 #blocked-permissions-container,
@@ -1332,16 +1334,21 @@ tooltip,
 .urlbarView-type-icon,
 .urlbarView-dynamic-onboardTabToSearch-description,
 .tab-secondary-label,
+.devtools-side-splitter,
+.devtools-horizontal-splitter,
 .bookmark-item>.toolbarbutton-icon,
 .unified-extensions-item-menu-button.subviewbutton,
 .translations-panel-settings-gear-icon,
 #translations-button-circle-arrows,
 #nav-bar .toolbaritem-combined-buttons separator,
+#_036a55b4-5e72-4d05-a06c-cba2dfcc134a_-menuitem-_translate-restore-this-frame,
 #downloadsFooterButtons,
 #downloadsFooterButtons>toolbarseparator,
 #fullscreen-exit-button,
 #back-button[disabled],
 #forward-button[disabled],
+#statuspanel,
+#import-button,
 #customization-panel-container,
 #customization-spacer,
 .customization-checkbox,
@@ -1349,6 +1356,8 @@ tooltip,
 .textbox-search-sign,
 #nav-bar-overflow-button,
 #alltabs-button,
+#PanelUI-button,
+#unified-extensions-button,
 #appMenu-fullscreen-button2,
 #context-navigation>.menuitem-iconic,
 #context-stop,
@@ -1360,6 +1369,8 @@ tooltip,
 #context-openlinkprivate,
 #context-bookmarklink,
 #context-setDesktopBackground,
+#tabContextMenu,
+#toolbar-context-menu,
 #toolbarItemsMenuSeparator,
 #context-sendimage,
 #context-sendvideo,
@@ -1373,6 +1384,7 @@ tooltip,
 #tracking-protection-icon-container {
 	display: none !important;
 }
+
 
 #titlebar .titlebar-buttonbox-container .titlebar-button {
 width: 16px !important;
