@@ -1435,3 +1435,8 @@ justify-content: center !important;
 width: auto !important;
 margin: 0 auto !important;
 }
+
+/* Active tab background color */
+#tabbrowser-tabs .tabbrowser-tab[selected] .tab-background {
+background-color: #252761 !important;
+}
