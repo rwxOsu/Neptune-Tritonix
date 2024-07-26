@@ -1,7 +1,7 @@
 <h1 align="center"><strong>Neptune Firefox</strong></h1>
 
 **Instructions:** 
-- This theme works for **Firefox v128+** and is compatible with both Windows and macOS.
+- This theme works for **Firefox v128+** and is compatible with Linux, Windows and macOS.
 - In shades of blue.
 - To enable adaptive colors, you need to install the **[Adaptive Tab Bar Color](https://addons.mozilla.org/en-US/firefox/addon/adaptive-tab-bar-colour/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)** extension. 
 
