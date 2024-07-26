@@ -1373,3 +1373,53 @@ tooltip,
 #tracking-protection-icon-container {
 	display: none !important;
 }
+
+#titlebar .titlebar-buttonbox-container .titlebar-button {
+width: 16px !important;
+height: 16px !important;
+padding: 0 !important;
+margin-right: 4px !important; /* Space between buttons */
+}
+
+/* Remove margin from the last button */
+#titlebar .titlebar-buttonbox-container .titlebar-button:last-child {
+margin-right: 0 !important;
+}
+
+#titlebar .titlebar-buttonbox-container .titlebar-button .toolbarbutton-icon {
+width: 12px !important; /* Adjust the icon width as needed */
+height: 12px !important; /* Adjust the icon height as needed */
+}
+
+
+#navigator-toolbox {
+background-color: var(--neptune-toolbar-background) !important;
+border: none !important;
+display: flex;
+justify-content: start;
+flex-wrap: wrap;
+flex-direction: row;
+}
+
+#PersonalToolbar {
+order: 2;
+width: 100% !important;
+background-color: var(--neptune-toolbar-background) !important;
+padding: 3px !important;
+height: 28px !important;
+display: flex !important;
+justify-content: center !important;
+}
+
+#PlacesToolbarItems {
+display: flex !important;
+justify-content: center !important;
+width: auto !important;
+}
+
+#PersonalToolbar #personal-bookmarks {
+display: flex !important;
+justify-content: center !important;
+width: auto !important;
+margin: 0 auto !important;
+}
